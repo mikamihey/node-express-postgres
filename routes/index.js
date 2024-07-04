@@ -1,18 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
-const pg = require('pg');
 
-const connection = new pg.Pool({
-  host: 'localhost',
-  user: 'root',
-  password: 'postgres',
-  database: 'todo_app',
-  port: 5432,
-  });
-  
-  
   router.get('/', function (req, res, next) {
+    const userId = req.session.userid;
+    const isAuth = Boolean(userId);
+    console.log(`isAuth: ${isAuth}`);
     knex("tasks")
       .select("*")
       .then(function (results) {
@@ -45,5 +38,7 @@ const connection = new pg.Pool({
       });
   });
 
-
+  router.use('/signup', require('./signup'));
+  router.use('/signin', require('./signin'));
+  router.use('/logout', require('./logout'));
 module.exports = router;
