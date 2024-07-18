@@ -9,39 +9,47 @@ const connection = new pg.Pool({
   database: 'todo_app',
   port: 5432,
   });
-  
-  router.get('/', function (req, res, next) {
-    connection.query(
-    `select * from tasks;`,
-    (error, results) => {
-    console.log(error);
-    console.log(results.rows);
-    res.render('index', {
-    title: 'ToDo App',
-    todos: results.rows, });
-    }
-    );
-    });
-    
-    
-  router.post('/', function (req, res, next) {
-    const todo = req.body.add;
-    knex("tasks")
-      .insert({user_id: 1, content: todo})
-      .then(function () {
-        res.redirect('/')
-      })
-      .catch(function (err) {
-        console.error(err);
-        res.render('index', {
-          title: 'ToDo App',
-        });
+router.get('/', function (req, res, next) {
+  const userId = req.session.userid;
+  const isAuth = Boolean(userId);
+  knex("tasks")
+    .select("*")
+    .then(function (results) {
+      res.render('index', {
+        title: 'ToDo App',
+        todos: results,
+        isAuth: isAuth,
       });
-  });
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.render('index', {
+        title: 'ToDo App',
+        isAuth: isAuth,
+      });
+    });
+});
 
-  router.use('/signup', require('./signup'));
-  router.use('/signin', require('./signin'));
-  router.use('/logout', require('./logout'));
+router.post('/', function (req, res, next) {
+  const userId = req.session.userid;
+  const isAuth = Boolean(userId);
+  const todo = req.body.add;
+  knex("tasks")
+    .insert({user_id: 1, content: todo})
+    .then(function () {
+      res.redirect('/')
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.render('index', {
+        title: 'ToDo App',
+        isAuth: isAuth,
+      });
+    });
+});
+
+router.use('/signup', require('./signup'));
+router.use('/signin', require('./signin'));
+router.use('/logout', require('./logout'));
+
 module.exports = router;
-
-
