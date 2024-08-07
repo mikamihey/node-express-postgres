@@ -5,17 +5,74 @@
   <style>
     body {
         font-family: Arial, sans-serif;
-        margin: 20px;
+        
+            margin: 0;
+            padding: 0;
+            background-color: #db4b4b;
     }
-    h1, h2 {
-        text-align: center;
-    }
-    .section {
-        margin-bottom: 20px;
-    }
-    .signature {
-        margin-top: 50px;
-    }
+    .balloon {
+            margin-bottom: 2em;
+            position: relative;
+        }
+
+        .balloon:before, .balloon:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .balloon figure {
+            width: 100px;
+            height: 100px;
+        }
+        .balloon figure img {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #343434;
+            border-radius: 50%;
+            margin: 0;
+        }
+
+        .balloon-image-description {
+            padding: 5px 0 0;
+            font-size: 11px;
+            text-align: center;
+        }
+        .balloon-text-right {
+            position: relative;
+            padding: 10px;
+            border: 1px solid;
+            border-radius: 10px;
+            max-width: calc(100% - 120px);
+            display: inline-block;
+            border-color: #343434;
+            
+        }
+        .balloon-text-right:before {
+            border: 10px solid transparent;
+            border-right: 10px solid #343434;
+            top: 15px;
+            left: -20px;
+            position: absolute;
+            content: '';
+        }
+        .balloon-text-right:after {
+            border: 10px solid transparent;
+            border-right: 10px solid #fff;
+            top: 15px;
+            left: -19px;
+            position: absolute;
+            content: '';
+        }
+
+        .balloon p {
+            margin: 0 0 20px;
+        }
+
+        .balloon p:last-child {
+            margin-bottom: 0;
+        }
+   
 </style>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -42,30 +99,42 @@
       </div>
     </div>
   </div>
+  <div class="balloon">
+    <figure class="balloon-image-left">
+        <img src="./back1.jpg" alt="キャラ">
+        <figcaption class="balloon-image-description">キャラ名</figcaption>
+    </figure>
+    <div class="balloon-text-right">
+      <p>ここに吹き出し内容を入力します。</p>
+  </div>
+  </div>
 <% } else { %>
   <h1>契約書</h1>
   <div class="section" align="center">
       <h2>第1条 契約の目的</h2>
-      <p>ここに契約の目的を記載します。</p>
+      <p>　逃がさないため</p>
   </div>
-  <div class="section">
+  <div class="section" align="center">
       <h2>第2条 契約の内容</h2>
-      <p>ここに契約の詳細な内容を記載します。</p>
+      <p>　１３時間拘束・休日なし・固定給１７万５０００円・<br>時間外労働：基本給８２０円×１．５倍×４時間</p>
   </div>
-  <div class="section">
+  <div class="section" align="center">
       <h2>第3条 契約期間</h2>
-      <p>契約の開始日と終了日を記載します。</p>
+      <p>　定めなし</p>
   </div>
-  <div class="section">
+  <div class="section" align="center">
     <h2>第4条 契約の解除</h2>
-    <p>契約解除の条件を記載します。</p>
+    <p>　死亡時に開放されることとなる</p>
 </div>
-<div class="signature">
-    <p>署名: ___________________________</p>
-    <p>日付: ___________________________</p>
-</div>
-  
+<div class="signature" align="center">
+  <p>以上について私は同意します。<input type="checkbox"></p>
 
+  <p>署名:   川合　洸</p>
+
+</div>
+<div align="center">
+<p>　　　　　　　　　　　　　　<input type="submit" value="完了"></p>
+</div>
 <% } %>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
