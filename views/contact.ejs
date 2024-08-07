@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             background-color: #db4b4b;
+            margin-left:200px;
     }
     .balloon {
             margin-bottom: 2em;
@@ -42,6 +43,7 @@
             position: relative;
             padding: 10px;
             border: 1px solid;
+            margein-right: 100;
             border-radius: 10px;
             max-width: calc(100% - 120px);
             display: inline-block;
@@ -60,7 +62,7 @@
             border: 10px solid transparent;
             border-right: 10px solid #fff;
             top: 15px;
-            left: -19px;
+            left: 30px;
             position: absolute;
             content: '';
         }
@@ -109,39 +111,40 @@
   </div>
   </div>
 <% } else { %>
-  <h1 align="center">契約書</h1>
-  <div class="section" align="center">
-      <h3>第1条 契約の目的</h3>
-      <p>　逃がさないため</p>
-  </div>
-  <div class="section" align="center">
-      <h3>第2条 契約の内容</h3>
-      <p>　１３時間拘束・休日なし・固定給１７万５０００円・<br>時間外労働：基本給８２０円×１．５倍×４時間</p>
-  </div>
-  <div class="section" align="center">
-      <h2>第3条 契約期間</h2>
-      <p>　定めなし</p>
-  </div>
-  <div class="section" align="center">
-    <h2>第4条 契約の解除</h2>
-    <p>　死亡時に開放されることとなる</p>
-</div>
-<div class="signature" align="center">
-  <p>以上について私は同意します。<input type="checkbox"></p>
-
-  <p>署名:   川合　洸</p>
-
-</div>
-<div align="center">
-<p>　　　　　　　　　　　　　　<input type="submit" value="完了"></p>
-</div>
 <div class="balloon">
   <figure class="balloon-image-left">
       <img src="./back1.jpg" alt="キャラ">
       <figcaption class="balloon-image-description">キャラ名</figcaption>
   </figure>
   <div class="balloon-text-right">
-    <p>ここに吹き出し内容を入力します。</p>
+    <h1 align="center">契約書</h1>
+    <div class="section" align="center">
+        <h3>第1条 契約の目的</h3>
+        <p>　逃がさないため</p>
+    </div>
+    <div class="section" align="center">
+        <h3>第2条 契約の内容</h3>
+        <p>　１３時間拘束・休日なし・固定給１７万５０００円・<br>時間外労働：基本給6２０円×１．５倍×４時間</p>
+    </div>
+    <div class="section" align="center">
+        <h3>第3条 契約期間</h3>
+        <p>　定めなし</p>
+    </div>
+    <div class="section" align="center">
+      <h2>第4条 契約の解除</h2>
+      <p>　死亡時に開放されることとなる</p>
+  </div>
+  <div class="signature" align="center">
+    <br>
+    <br>
+    <p>以上について私は同意します。<input type="checkbox"></p>
+  
+    <p>署名:   川合　洸</p>
+  
+  </div>
+  <div align="center">
+    <p>　　　　　　　　　　　　　　<input type="submit" value="完了"></p>
+    </div>
 </div>
 </div>
 <% } %>
