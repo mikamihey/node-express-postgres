@@ -8,7 +8,7 @@ const app = express();
 exports.app = app;
 
 // authorization
-require("../passport")(app);
+require("./config/passport")(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
