@@ -7,7 +7,7 @@
         font-family: Arial, sans-serif;
         
             padding: 0;
-            background-color: #db4b4b;
+            color: #d30101;
             margin-left:100px;
     }
     .balloon {
@@ -96,22 +96,22 @@
   <div style="margin: 0 auto; width: 50%;">
 
   <div class="balloon-text-right" >
-    <h1 align="center">雇用契約書</h1>
+    <h1 align="center">契約書</h1>
     <div class="section" align="center">
         <h3>第1条 契約の目的</h3>
-        <p>　逃がさないため</p>
+        <p>より良い機能を使っていただくため</p>
     </div>
     <div class="section" align="center">
         <h3>第2条 契約の内容</h3>
-        <p>　１３時間拘束・休日なし・固定給１７万５０００円・<br>時間外労働：基本給6２０円×１．５倍×４時間</p>
+        <p>Todoapp Gのご利用</p>
     </div>
     <div class="section" align="center">
         <h3>第3条 契約期間</h3>
-        <p>　定めなし</p>
+        <p>　１か月間</p>
     </div>
     <div class="section" align="center">
       <h2>第4条 契約の備考</h2>
-      <p>　仕事による病気やケガ等に弊社は一切責任を負いません。</p>
+      <p>何らかの形で損害が生じた場合、弊社は一切の責任を問いません。</p>
   </div>
   <div class="signature" align="center">
     <br>
@@ -119,44 +119,18 @@
     <div align="center">
         <form onsubmit="handleSubmit(event)">
             <p>以上について私は同意します。<input type="checkbox" id="myCheckbox" onclick="checkCheckbox()">
-                <p>署名:   川合　洸</p>
+                   <span><h5>署名:  </h5><input required type="text"　id="employee"></span>
             <button type="submit">完了</button>
         </form>
         
   </div>
 <% } else { %>
-  <div style="margin: 0 auto; width: 50%;">
-  <div class="balloon-text-right" align="center">
-    <h1 align="center">契約書</h1>
-    <div class="section" align="center">
-        <h3>第1条 契約の目的</h3>
-        <p>　みんながみんなでみんなになるため</p>
-    </div>
-    <div class="section" align="center">
-        <h3>第2条 契約の内容</h3>
-        <p>　猪</p>
-    </div>
-    <div class="section" align="center">
-        <h3>第3条 契約期間</h3>
-        <p>　2024年2月3日～2024年4月25日</p>
-    </div>
-    <div class="section" align="center">
-      <h2>第4条 契約の解除</h2>
-      <p>　死亡時に開放されることとなる</p>
-  </div>
-    <br>
-    <br>
-  <div align="center">
-    <form onsubmit="handleSubmit(event)">
-        <p>以上について私は同意します。<input type="checkbox" id="myCheckbox" onclick="checkCheckbox()">
-            <p>署名:   川合　洸</p>
-        <button type="submit">完了</button>
-    </form>
-    </div>
+    <div align="center">
+ <br>
+ <br>
+ <h1>Sign inしてください</h1>
+ 
 </div>
-</div>
-
-
 <% } %>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
