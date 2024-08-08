@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        
+            padding: 0;
+            color: #d30101;
+            margin-left:100px;
+    }
+    .balloon {
+            margin-bottom: 2em;
+            position: relative;
+        }
+
+        .balloon:before, .balloon:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .balloon figure {
+            width: 100px;
+            height: 100px;
+        }
+        .balloon figure img {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #343434;
+            border-radius: 50%;
+            margin: 0;
+        }
+
+        .balloon-image-description {
+            padding: 5px 0 0;
+            font-size: 11px;
+            text-align: center;
+        }
+        .balloon-text-right {
+            position: relative;
+            padding: 10px;
+            border: 1px solid;
+            margein-right: 100px;
+            border-radius: 10px;
+            max-width: calc(100% - 120px);
+            display: inline-block;
+            border-color: #343434;
+            
+        }
+        .balloon-text-right:before {
+            border: 10px solid transparent;
+            border-right: 10px solid #343434;
+            top: 15px;
+            left: -20px;
+            position: absolute;
+            content: '';
+        }
+        .balloon-text-right:after {
+            border: 10px solid transparent;
+            border-right: 10px solid #fff;
+            top: 15px;
+            left: 30px;
+            position: absolute;
+            content: '';
+        }
+
+        .balloon p {
+            margin: 40 40 20px;
+        }
+
+        .balloon p:last-child {
+            margin-bottom: 0;
+        }
+   
+</style>
+<script>
+  function handleSubmit(event) {
+            event.preventDefault(); // フォームのデフォルトの送信を防ぐ
+            const checkbox = document.getElementById('myCheckbox');
+            if (checkbox.checked) {
+                window.location.href = '/on'; // チェックされている場合のリダイレクト先
+            } else {
+                window.location.href = '/off'; // チェックされていない場合のリダイレクト先
+            }
+        }
+</script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<%- include('./error_messages'); %>
+<%- include('./header'); %>
+<% if(isAuth) { %>
+  <div style="margin: 0 auto; width: 50%;">
+
+  <div class="balloon-text-right" >
+    <h1 align="center">契約書</h1>
+    <div class="section" align="center">
+        <h3>第1条 契約の目的</h3>
+        <p>より良い機能を使っていただくため</p>
+    </div>
+    <div class="section" align="center">
+        <h3>第2条 契約の内容</h3>
+        <p>Todoapp Gのご利用</p>
+    </div>
+    <div class="section" align="center">
+        <h3>第3条 契約期間</h3>
+        <p>　１か月間</p>
+    </div>
+    <div class="section" align="center">
+      <h2>第4条 契約の備考</h2>
+      <p>何らかの形で損害が生じた場合、弊社は一切の責任を問いません。</p>
+  </div>
+  <div class="signature" align="center">
+    <br>
+    <br>
+    <div align="center">
+        <form onsubmit="handleSubmit(event)">
+            <p>以上について私は同意します。<input type="checkbox" id="myCheckbox" onclick="checkCheckbox()">
+                   <span><h5>署名:  </h5><input required type="text"　id="employee"></span>
+            <button type="submit">完了</button>
+        </form>
+        
+  </div>
+<% } else { %>
+    <div align="center">
+ <br>
+ <br>
+ <h1>Sign inしてください</h1>
+ 
+</div>
+<% } %>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+</html>

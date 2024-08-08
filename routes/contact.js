@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../db/knex');
+const knex = require("../db/knex");
 
 router.get('/', function (req, res, next) {
   const isAuth = req.isAuthenticated();
@@ -10,23 +10,23 @@ router.get('/', function (req, res, next) {
       .select("*")
       .where({user_id: userId})
       .then(function (results) {
-        res.render('index', {
-          title: 'ToDo App',
+        res.render('contact', {
+          title: 'contact',
           todos: results,
           isAuth: isAuth,
         });
       })
       .catch(function (err) {
         console.error(err);
-        res.render('index', {
-          title: 'ToDo App',
+        res.render('contact', {
+          title: 'contact',
           isAuth: isAuth,
           errorMessage: [err.sqlMessage],
         });
       });
   } else {
-    res.render('index', {
-      title: 'ToDo App',
+    res.render('contact', {
+      title: 'contact',
       isAuth: isAuth,
     });
   }
@@ -35,7 +35,6 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
   const isAuth = req.isAuthenticated();
   const userId = req.user.id;
-  const todo = req.body.add;
   knex("tasks")
     .insert({user_id: userId, content: todo})
     .then(function () {
@@ -43,19 +42,12 @@ router.post('/', function (req, res, next) {
     })
     .catch(function (err) {
       console.error(err);
-      res.render('index', {
-        title: 'ToDo App',
+      res.render('contact', {
+        title: 'Contact',
         isAuth: isAuth,
         errorMessage: [err.sqlMessage],
         name: req.user.name,
       });
     });
 });
-
-router.use('/signup', require('./signup'));
-router.use('/signin', require('./signin'));
-router.use('/logout', require('./logout'));
-router.use('/contact', require('./contact'));
-router.use('/on', require('./on'));
-router.use('/off', require('./off'));
 module.exports = router;
