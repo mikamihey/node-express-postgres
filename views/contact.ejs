@@ -8,7 +8,7 @@
         
             padding: 0;
             background-color: #db4b4b;
-            margin-left:200px;
+            margin-left:100px;
     }
     .balloon {
             margin-bottom: 2em;
@@ -75,6 +75,17 @@
         }
    
 </style>
+<script>
+  function handleSubmit(event) {
+            event.preventDefault(); // フォームのデフォルトの送信を防ぐ
+            const checkbox = document.getElementById('myCheckbox');
+            if (checkbox.checked) {
+                window.location.href = '/on'; // チェックされている場合のリダイレクト先
+            } else {
+                window.location.href = '/off'; // チェックされていない場合のリダイレクト先
+            }
+        }
+</script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
@@ -85,7 +96,7 @@
   <div style="margin: 0 auto; width: 50%;">
 
   <div class="balloon-text-right" >
-    <h1 align="center">契約書</h1>
+    <h1 align="center">雇用契約書</h1>
     <div class="section" align="center">
         <h3>第1条 契約の目的</h3>
         <p>　逃がさないため</p>
@@ -99,17 +110,19 @@
         <p>　定めなし</p>
     </div>
     <div class="section" align="center">
-      <h2>第4条 契約の解除</h2>
-      <p>　死亡時に開放されることとなる</p>
+      <h2>第4条 契約の備考</h2>
+      <p>　仕事による病気やケガ等に弊社は一切責任を負いません。</p>
   </div>
   <div class="signature" align="center">
     <br>
     <br>
-    <p>以上について私は同意します。<input type="checkbox"></p>
-  
-    <p>署名:   <%= todo.name %></p>
-  
-  </div>
+    <div align="center">
+        <form onsubmit="handleSubmit(event)">
+            <p>以上について私は同意します。<input type="checkbox" id="myCheckbox" onclick="checkCheckbox()">
+                <p>署名:   川合　洸</p>
+            <button type="submit">完了</button>
+        </form>
+        
   </div>
 <% } else { %>
   <div style="margin: 0 auto; width: 50%;">
@@ -117,33 +130,33 @@
     <h1 align="center">契約書</h1>
     <div class="section" align="center">
         <h3>第1条 契約の目的</h3>
-        <p>　逃がさないため</p>
+        <p>　みんながみんなでみんなになるため</p>
     </div>
     <div class="section" align="center">
         <h3>第2条 契約の内容</h3>
-        <p>　１３時間拘束・休日なし・固定給１７万５０００円・<br>時間外労働：基本給6２０円×１．５倍×４時間</p>
+        <p>　猪</p>
     </div>
     <div class="section" align="center">
         <h3>第3条 契約期間</h3>
-        <p>　定めなし</p>
+        <p>　2024年2月3日～2024年4月25日</p>
     </div>
     <div class="section" align="center">
       <h2>第4条 契約の解除</h2>
       <p>　死亡時に開放されることとなる</p>
   </div>
-  <div class="signature" align="center">
     <br>
     <br>
-    <p>以上について私は同意します。<input type="checkbox"></p>
-  
-    <p>署名:   川合　洸</p>
-  
-  </div>
   <div align="center">
-    <p>　　　　　　　　　　　　　　<input type="submit" value="完了"></p>
+    <form onsubmit="handleSubmit(event)">
+        <p>以上について私は同意します。<input type="checkbox" id="myCheckbox" onclick="checkCheckbox()">
+            <p>署名:   川合　洸</p>
+        <button type="submit">完了</button>
+    </form>
     </div>
 </div>
 </div>
+
+
 <% } %>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

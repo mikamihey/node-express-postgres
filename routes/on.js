@@ -3,14 +3,15 @@ const router = express.Router();
 const knex = require("../db/knex");
 const bcrypt = require("bcrypt");
 
+
 router.get('/', function (req, res, next) {
   const userId = req.session.userid;
   const isAuth = Boolean(userId);
-  res.render('contact', {
-    title: 'contact',
+  res.render('on', {
+    title: 'on',
     isAuth: isAuth,
-  
   });
+  
 });
 router.post('/', function (req, res, next) {
   const userId = req.session.userid;
@@ -24,8 +25,8 @@ router.post('/', function (req, res, next) {
     .select("*")
     .then(async function (result) {
       if (result.length !== 0) {
-        res.render("contact", {
-          title: "contact",
+        res.render("on", {
+          title: "on",
           errorMessage: ["9時間労働ね"],
           isAuth: isAuth,
         })
@@ -39,15 +40,15 @@ router.post('/', function (req, res, next) {
           })
           .catch(function (err) {
             console.error(err);
-            res.render("contact", {
-              title: "contact",
+            res.render("on", {
+              title: "on",
               errorMessage: [err.sqlMessage],
               isAuth: isAuth,
             });
           });
       } else {
-        res.render("contact", {
-          title: "contact",
+        res.render("on", {
+          title: "on",
           errorMessage: ["何をしている！"],
           isAuth: isAuth,
         });
