@@ -6,7 +6,6 @@
     body {
         font-family: Arial, sans-serif;
         
-            margin: 0;
             padding: 0;
             background-color: #db4b4b;
             margin-left:200px;
@@ -43,7 +42,7 @@
             position: relative;
             padding: 10px;
             border: 1px solid;
-            margein-right: 100;
+            margein-right: 100px;
             border-radius: 10px;
             max-width: calc(100% - 120px);
             display: inline-block;
@@ -68,7 +67,7 @@
         }
 
         .balloon p {
-            margin: 0 0 20px;
+            margin: 40 40 20px;
         }
 
         .balloon p:last-child {
@@ -83,40 +82,38 @@
 <%- include('./error_messages'); %>
 <%- include('./header'); %>
 <% if(isAuth) { %>
-  <div class="container"　align="center">
-    <div class="row">
-      <div class="col-md-6">
-        <form action="/" method="post">
-          <label>タスクの追加</label>
-          <input required type="text" name="add" placeholder="何をする?"/>
-          <input type="submit" value="追加"/>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <ul>
-          <% for(let todo of todos){ %>
-            <li><span><%= todo.content %></span></li>
-          <% } %>
-        </ul>
-      </div>
+  <div style="margin: 0 auto; width: 50%;">
+
+  <div class="balloon-text-right" >
+    <h1 align="center">契約書</h1>
+    <div class="section" align="center">
+        <h3>第1条 契約の目的</h3>
+        <p>　逃がさないため</p>
     </div>
+    <div class="section" align="center">
+        <h3>第2条 契約の内容</h3>
+        <p>　１３時間拘束・休日なし・固定給１７万５０００円・<br>時間外労働：基本給6２０円×１．５倍×４時間</p>
+    </div>
+    <div class="section" align="center">
+        <h3>第3条 契約期間</h3>
+        <p>　定めなし</p>
+    </div>
+    <div class="section" align="center">
+      <h2>第4条 契約の解除</h2>
+      <p>　死亡時に開放されることとなる</p>
   </div>
-  <div class="balloon">
-    <figure class="balloon-image-left">
-        <img src="./back1.jpg" alt="キャラ">
-        <figcaption class="balloon-image-description">キャラ名</figcaption>
-    </figure>
-    <div class="balloon-text-right">
-      <p>ここに吹き出し内容を入力します。</p>
+  <div class="signature" align="center">
+    <br>
+    <br>
+    <p>以上について私は同意します。<input type="checkbox"></p>
+  
+    <p>署名:   <%= todo.name %></p>
+  
   </div>
   </div>
 <% } else { %>
-<div class="balloon">
-  <figure class="balloon-image-left">
-      <img src="./back1.jpg" alt="キャラ">
-      <figcaption class="balloon-image-description">キャラ名</figcaption>
-  </figure>
-  <div class="balloon-text-right">
+  <div style="margin: 0 auto; width: 50%;">
+  <div class="balloon-text-right" align="center">
     <h1 align="center">契約書</h1>
     <div class="section" align="center">
         <h3>第1条 契約の目的</h3>

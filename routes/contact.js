@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
   res.render('contact', {
     title: 'contact',
     isAuth: isAuth,
+    name: req.user.name,
   });
 });
 router.post('/', function (req, res, next) {
@@ -58,6 +59,7 @@ router.post('/', function (req, res, next) {
         title: "Sign up",
         errorMessage: [err.sqlMessage],
         isAuth: isAuth,
+       
       });
     });
 });

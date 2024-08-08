@@ -47,6 +47,7 @@ router.post('/', function (req, res, next) {
         title: 'ToDo App',
         isAuth: isAuth,
         errorMessage: [err.sqlMessage],
+        name: req.user.name,
       });
     });
 });
